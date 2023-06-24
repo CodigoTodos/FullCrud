@@ -5,24 +5,24 @@ import com.brunoalves.crud.entity.Product;
 
 public class ProductMapper {
 
+    private ProductMapper(){}
+
     public static ProductDTO mapToProductDTO(Product product){
-        ProductDTO productDTO = new ProductDTO(
+        return new ProductDTO(
                 product.getId(),
                 product.getName(),
                 product.getQuantity(),
                 product.getPrice()
         );
-        return productDTO;
     }
 
     public static Product mapToProduct(ProductDTO productDTO){
-        Product product = new Product(
+        return new Product(
                 productDTO.getId(),
                 productDTO.getName(),
                 productDTO.getQuantity(),
                 productDTO.getPrice()
         );
-        return product;
     }
 
 

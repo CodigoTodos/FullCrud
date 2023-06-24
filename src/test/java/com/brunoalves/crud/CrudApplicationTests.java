@@ -2,6 +2,7 @@ package com.brunoalves.crud;
 
 import com.brunoalves.crud.dto.ProductDTO;
 import com.brunoalves.crud.entity.Product;
+import org.junit.Assert;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,12 +11,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.web.client.RestTemplate;
-
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, useMainMethod = SpringBootTest.UseMainMethod.WHEN_AVAILABLE)
 class CrudApplicationTests {
 
 	@LocalServerPort
@@ -99,4 +99,28 @@ class CrudApplicationTests {
 
 	}
 
+	@Test
+	void testProductNotFoundException() {
+		try {
+			ProductDTO productDTO = restTemplate.getForObject(baseUrl + "/{id}", ProductDTO.class, 1);
+		}
+		catch(Exception ex)
+		{
+			Assert.assertTrue(ex.getMessage().contains("Product with id 1 could not be found."));
+		}
+
+	}
+
+	@Test
+	void testConstraintViolationException() {
+		try {
+			ProductDTO productDTO = new ProductDTO(null, 3, 399);
+			ProductDTO response = restTemplate.postForObject(baseUrl, productDTO, ProductDTO.class);
+		}
+		catch(Exception ex)
+		{
+			Assert.assertTrue(ex.getMessage().contains("There must be a attribute name and it cannot be left blank."));
+		}
+
+	}
 }

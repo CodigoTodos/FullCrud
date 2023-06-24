@@ -1,6 +1,5 @@
 package com.brunoalves.crud.dto;
 
-import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 @Setter
@@ -10,7 +9,6 @@ import lombok.*;
 public class ProductDTO {
 
     private Long id;
-
     private String name;
     private int quantity;
     private double price;

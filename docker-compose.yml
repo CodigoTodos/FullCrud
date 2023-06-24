@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  springbootmysql:
+    image: "bmpalves/springbootmysql:latest"
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - mysqldb
+  mysqldb:
+    image: "mysql:8.0.33"
+    restart: always
+    ports:
+      - 3307:3306
+    environment:
+      MYSQL_DATABASE: products
+      MYSQL_USER: bruno
+      MYSQL_PASSWORD: bruno1234
+      MYSQL_ROOT_PASSWORD: --SQL4321--

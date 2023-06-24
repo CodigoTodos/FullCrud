@@ -1,7 +1,6 @@
 package com.brunoalves.crud.service;
 
 import com.brunoalves.crud.dto.ProductDTO;
-import com.brunoalves.crud.entity.Product;
 
 import java.util.List;
 

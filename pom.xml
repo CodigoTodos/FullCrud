@@ -9,8 +9,8 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.brunoalves</groupId>
-	<artifactId>crud</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>complete_crud</artifactId>
+	<version>0.0.1</version>
 	<name>crud</name>
 	<description>Complete CRUD</description>
 	<properties>
@@ -59,6 +59,21 @@
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
 			<version>2.0.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.maven.surefire</groupId>
+			<artifactId>surefire-junit-platform</artifactId>
+			<version>3.1.2</version>
+		</dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 

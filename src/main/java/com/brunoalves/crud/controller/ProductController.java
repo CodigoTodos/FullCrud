@@ -1,7 +1,6 @@
 package com.brunoalves.crud.controller;
 
 import com.brunoalves.crud.dto.ProductDTO;
-import com.brunoalves.crud.entity.Product;
 import com.brunoalves.crud.service.ProductServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
